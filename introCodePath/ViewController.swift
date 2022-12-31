@@ -17,6 +17,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var numberOfPetStepper: UIStepper!
     @IBOutlet weak var morePetSwitch: UISwitch!
     @IBOutlet weak var introduceButton: UIButton!
+    @IBOutlet weak var feelingSegmentedControl: UISegmentedControl!
+    
+    let defaultFname = UserDefaults.standard
+    let defaultLname = UserDefaults.standard
+    let defaultYear = UserDefaults.standard
+    let defaultFeeling = UserDefaults.standard
+    let defaultPets = UserDefaults.standard
+    let defaultMorePets = UserDefaults.standard
+    
     
     
     @IBAction func introduceSelfDidTapped(_ sender: UIButton) {
@@ -24,10 +33,12 @@ class ViewController: UIViewController {
                 // Let's us chose the title we have selected from the segmented control
                 let year = yearSegmentedControl.titleForSegment(at: yearSegmentedControl.selectedSegmentIndex)
                 
+                //lets us choose the feeling that we have chosen on the segmented control
+                let feeling = feelingSegmentedControl.titleForSegment(at: feelingSegmentedControl.selectedSegmentIndex)
                 // Creating a variable of type string, that holds an introduction. The introduction interpolates the values from the text fields provided.
                 // Currently we can only present the information in a print statement. However, this lets us verify that our app is printing out what is intended!
                 let introduction = """
-                My name is \(firstNameText.text!) \(lastNameText.text!) and I attend \(schoolNameText.text!). I am currently in my \(year!) year and I own \(numberOfPet.text!) dogs. It is \(morePetSwitch.isOn) that I want more pets.
+                My name is \(firstNameText.text!) \(lastNameText.text!) and I attend \(schoolNameText.text!). I am feeling \(feeling!) right now. I am currently in my \(year!) year and I own \(numberOfPet.text!) dogs. It is \(morePetSwitch.isOn) that I want more pets.
                 """
                 // Creates the alert where we pass in our message, which our introduction.
                 let alertController = UIAlertController(title: "My Introduction", message: introduction, preferredStyle: .alert)
@@ -37,8 +48,12 @@ class ViewController: UIViewController {
                 
                 // Passing this action to the alert controller so it can be dismissed
                 alertController.addAction(action)
-                
+        
+        
+        
+        
                 present(alertController, animated: true, completion: nil)
+        
             }
         
         
@@ -50,6 +65,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
         // Do any additional setup after loading the view.
     }
 
