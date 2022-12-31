@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     
     @IBAction func introduceSelfDidTapped(_ sender: UIButton) {
                 
-                // Let's us chose the title we have selected from the segmented control
+                //The year the user inputed
                 let year = yearSegmentedControl.titleForSegment(at: yearSegmentedControl.selectedSegmentIndex)
                 
                 //lets us choose the feeling that we have chosen on the segmented control
@@ -40,13 +40,13 @@ class ViewController: UIViewController {
                 let introduction = """
                 My name is \(firstNameText.text!) \(lastNameText.text!) and I attend \(schoolNameText.text!). I am feeling \(feeling!) right now. I am currently in my \(year!) year and I own \(numberOfPet.text!) dogs. It is \(morePetSwitch.isOn) that I want more pets.
                 """
-                // Creates the alert where we pass in our message, which our introduction.
+                // Creates the pop-up (the alert) that displays our introduction
                 let alertController = UIAlertController(title: "My Introduction", message: introduction, preferredStyle: .alert)
                 
-                // A way to dismiss the box once it pops up
+                // This puts "Nice to meet you" in the text box of the dismiss button on the pop up 
                 let action = UIAlertAction(title: "Nice to meet you!", style: .default, handler: nil)
                 
-                // Passing this action to the alert controller so it can be dismissed
+                //allows the pop up (alert) to be dismissed 
                 alertController.addAction(action)
         
         
@@ -58,17 +58,13 @@ class ViewController: UIViewController {
         
         
     @IBAction func stepperDidChange(_ sender: UIStepper) {
-          
-          numberOfPet.text = "\(Int(sender.value))"
+                //This sets the text in the "numberOfPet" label as the integer value of the stepper. Allows us to increase or decrease our pets. 
+                numberOfPet.text = "\(Int(sender.value))"
       }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        
         // Do any additional setup after loading the view.
     }
 
